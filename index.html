@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AIML-B Attendance Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#eaf6ff,#f7fbff,#dff1ff);
+}
+
+.container{
+width:90%;
+max-width:420px;
+padding:30px;
+border-radius:20px;
+
+background:rgba(255,255,255,0.4);
+backdrop-filter:blur(15px);
+
+box-shadow:0 10px 35px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+h1{
+font-size:22px;
+margin-bottom:20px;
+color:#2c3e50;
+}
+
+input{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:none;
+outline:none;
+margin-bottom:15px;
+font-size:14px;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+background:#3da5ff;
+color:white;
+font-size:15px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#1f8cff;
+transform:scale(1.03);
+}
+
+.profile{
+margin-top:20px;
+padding:15px;
+border-radius:12px;
+background:rgba(255,255,255,0.6);
+display:none;
+}
+
+.attendance{
+margin-top:15px;
+font-size:14px;
+}
+
+.chartBox{
+margin-top:20px;
+}
+
+.message{
+margin-top:15px;
+font-weight:600;
+}
+
+footer{
+margin-top:20px;
+font-size:12px;
+color:#555;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>AIML-B Attendance Portal</h1>
+
+<input id="roll" placeholder="Enter Roll Number">
+
+<button onclick="checkAttendance()">Check Attendance</button>
+
+<div class="profile" id="profile">
+
+<h3 id="name"></h3>
+<p id="rollno"></p>
+
+<div class="attendance">
+<p id="jan"></p>
+<p id="feb"></p>
+<p id="total"></p>
+</div>
+
+<div class="chartBox">
+<canvas id="chart"></canvas>
+</div>
+
+<div class="message" id="msg"></div>
+
+</div>
+
+<footer>Created by Gopi Manoj</footer>
+
+</div>
+
+
+<script>
+
+const students={
+
+"25H71A6167":{name:"Akula Lakshmi Narasimha",jan:42.9,feb:68.1},
+"25H71A6168":{name:"Allamudi Murali Krishna",jan:94.3,feb:81.2},
+"25H71A6169":{name:"Ancha Omkar Chowdary",jan:57.1,feb:74.2},
+"25H71A6170":{name:"Bollam Bindusri",jan:85.7,feb:80.3},
+"25H71A6171":{name:"Bollam Reshma",jan:71.4,feb:82.6},
+"25H71A6172":{name:"Bollepogu Karthik",jan:40.0,feb:38.5},
+"25H71A6173":{name:"Boosi Mahima Jyothi",jan:82.9,feb:85.0},
+"25H71A6174":{name:"Challa Akhil",jan:68.6,feb:70.4},
+"25H71A6175":{name:"Chattu Saranya Lohitha",jan:100.0,feb:83.6},
+"25H71A6176":{name:"Chavala Poornesh",jan:74.3,feb:77.9},
+"25H71A6177":{name:"Chinni Suresh",jan:57.1,feb:65.7},
+"25H71A6178":{name:"Chunduri Shashank Naga Vignesh",jan:22.9,feb:30.5},
+"25H71A6179":{name:"Gangavarapu Deepika",jan:77.1,feb:65.7},
+"25H71A6180":{name:"Gavini Naveen",jan:71.4,feb:69.0},
+"25H71A6181":{name:"Gurram Rakesh Varma",jan:77.1,feb:70.9},
+"25H71A6182":{name:"Jada Srividhya",jan:71.4,feb:75.1},
+"25H71A6183":{name:"Janga Jasmitha Rani",jan:85.7,feb:76.1},
+"25H71A6184":{name:"Jonnakuti Keerthana Sri",jan:77.1,feb:77.9},
+"25H71A6185":{name:"Karnati Divya Rajya Lakshmi",jan:82.9,feb:73.7},
+"25H71A6186":{name:"Katta Srinanda Chaitanya Kumar",jan:94.3,feb:93.4},
+"25H71A6187":{name:"Kaviti Pujitha",jan:77.1,feb:71.4},
+"25H71A6188":{name:"Kommukuri Vijayalakshmi",jan:91.4,feb:85.4},
+"25H71A6189":{name:"Kotakonda Jaswanth",jan:8.6,feb:23.9},
+"25H71A6190":{name:"Kotaru Amrutha",jan:85.7,feb:88.7},
+"25H71A6191":{name:"Kotaru Amulya",jan:88.6,feb:89.7},
+"25H71A6192":{name:"Kukkala Pranay",jan:34.3,feb:53.1},
+"25H71A6193":{name:"Kunchala Yesuraja",jan:60.0,feb:72.8},
+"25H71A6194":{name:"Kuraku Mohan Krishna",jan:57.1,feb:71.4},
+"25H71A6195":{name:"Lam Suvarna Sandeep",jan:94.3,feb:78.9},
+"25H71A6196":{name:"M Madhulatha",jan:88.6,feb:72.3},
+"25H71A6197":{name:"Madhavarapu Siva Naga Ram Charan Hemanth",jan:57.1,feb:55.9},
+"25H71A6198":{name:"Madugula Suseel Kumar",jan:20.0,feb:58.2},
+"25H71A6199":{name:"Manchala Hemanth",jan:11.4,feb:63.8},
+"25H71A61A0":{name:"Mandali Dheemanth Nag",jan:40.0,feb:73.2},
+"25H71A61A1":{name:"Mandavi Mishra",jan:74.3,feb:68.1},
+"25H71A61A2":{name:"Mecharla Pravallika",jan:57.1,feb:79.3},
+"25H71A61A3":{name:"Meda Jaswanth",jan:88.6,feb:70.0},
+"25H71A61A4":{name:"Molleti Jaya Siva Rama Ganesh",jan:57.1,feb:65.3},
+"25H71A61A5":{name:"Muchinapalli M N V S Srinivas",jan:85.7,feb:77.9},
+"25H71A61A6":{name:"Nagapuri Gopi Manoj",jan:94.3,feb:79.8},
+"25H71A61A7":{name:"Nalajala Balaji",jan:82.9,feb:82.6},
+"25H71A61A8":{name:"Nali Narasimha Raju",jan:60.0,feb:70.0},
+"25H71A61A9":{name:"Nandyala Sarabaiah",jan:74.3,feb:73.2},
+"25H71A61B0":{name:"Neelam Srinivasa",jan:40.0,feb:71.8},
+"25H71A61B1":{name:"Palaparthi Samith Kumar",jan:25.7,feb:39.4},
+"25H71A61B2":{name:"Parasa Thanush",jan:37.1,feb:58.2},
+"25H71A61B3":{name:"Parella Naga Sudha",jan:62.9,feb:82.6},
+"25H71A61B4":{name:"Pothamsetty Kavya Sri",jan:82.9,feb:83.6},
+"25H71A61B5":{name:"Potnuri Sanjay",jan:97.1,feb:80.8},
+"25H71A61B6":{name:"Prem Teja Lakkabattula",jan:91.4,feb:73.2},
+"25H71A61B7":{name:"Rachabanti Gayathri",jan:77.1,feb:80.8},
+"25H71A61B8":{name:"Ramireddy Anusha",jan:91.4,feb:88.3},
+"25H71A61B9":{name:"Samudayapalepu Durga Devi",jan:82.9,feb:67.1},
+"25H71A61C0":{name:"Sayyad Hasma",jan:88.6,feb:87.8},
+"25H71A61C1":{name:"Shaik Akash",jan:91.4,feb:76.1},
+"25H71A61C2":{name:"Shaik Maleeha Aiman",jan:91.4,feb:56.3},
+"25H71A61C3":{name:"Shaik Sahera",jan:88.6,feb:88.7},
+"25H71A61C4":{name:"Shanmuk Rahul Joga",jan:77.1,feb:74.6},
+"25H71A61C5":{name:"Sunkara Siddha Hanu Ratna Manikanth",jan:57.1,feb:58.7},
+"25H71A61C6":{name:"Surapaneni Aswini",jan:71.4,feb:76.1},
+"25H71A61C7":{name:"Tammaneni Pedda Venkata Nithin Reddy",jan:71.4,feb:65.7},
+"25H71A61C8":{name:"Thalupula Gopinadh",jan:48.6,feb:77.0},
+"25H71A61C9":{name:"Thopula Bhargav Sai Amruth",jan:77.1,feb:66.2},
+"25H71A61D0":{name:"Vaka Lakshmi Jashnavi",jan:71.4,feb:65.3}
+
+};
+
+let chart;
+
+function checkAttendance(){
+
+const roll=document.getElementById("roll").value.trim();
+
+if(!students[roll]){
+alert("Student Data Not Found");
+return;
+}
+
+const s=students[roll];
+
+const total=((s.jan+s.feb)/2).toFixed(1);
+
+document.getElementById("profile").style.display="block";
+
+document.getElementById("name").innerText=s.name;
+document.getElementById("rollno").innerText="Roll: "+roll;
+
+document.getElementById("jan").innerText="January: "+s.jan+"%";
+document.getElementById("feb").innerText="February: "+s.feb+"%";
+document.getElementById("total").innerText="Total: "+total+"%";
+
+const msg=document.getElementById("msg");
+
+if(total>=75){
+msg.innerText="75% above undhi elane maintain cheyyandi. Good luck 👍";
+}else{
+msg.innerText="75% maintain cheyi. Daily college ki randi. All the best ⚠️";
+}
+
+const colors=[
+s.jan>=75?'#2ecc71':'#e74c3c',
+s.feb>=75?'#2ecc71':'#e74c3c',
+total>=75?'#2ecc71':'#e74c3c'
+];
+
+if(chart) chart.destroy();
+
+chart=new Chart(document.getElementById("chart"),{
+type:'bar',
+data:{
+labels:['January','February','Total'],
+datasets:[{
+data:[s.jan,s.feb,total],
+backgroundColor:colors
+}]
+},
+options:{
+animation:{duration:1500},
+scales:{y:{beginAtZero:true,max:100}}
+}
+});
+
+}
+
+</script>
+
+</body>
+</html>
