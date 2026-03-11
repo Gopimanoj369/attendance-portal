@@ -19,7 +19,7 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
-/* Animated Background */
+/* Rainbow Animated Background */
 
 body{
 height:100vh;
@@ -27,44 +27,89 @@ display:flex;
 justify-content:center;
 align-items:center;
 
-background: linear-gradient(270deg,#667eea,#764ba2,#6dd5ed);
-background-size:600% 600%;
-animation:bgmove 10s infinite;
+background: linear-gradient(
+270deg,
+#ff00cc,
+#3333ff,
+#00f2ff,
+#00ff9d,
+#f9ff00,
+#ff7300,
+#ff00cc
+);
+
+background-size:1400% 1400%;
+animation:rainbowBG 15s ease infinite;
 }
 
-@keyframes bgmove{
+@keyframes rainbowBG{
 0%{background-position:0% 50%}
 50%{background-position:100% 50%}
 100%{background-position:0% 50%}
 }
 
+
 /* Glass Container */
 
 .container{
-width:90%;
+width:92%;
 max-width:420px;
 
 padding:30px;
 
 border-radius:25px;
 
-background:rgba(255,255,255,0.15);
+background:rgba(255,255,255,0.12);
 
-backdrop-filter:blur(25px);
+backdrop-filter:blur(30px);
 
 border:1px solid rgba(255,255,255,0.4);
 
-box-shadow:0 10px 40px rgba(0,0,0,0.25);
+box-shadow:
+0 10px 40px rgba(0,0,0,0.3),
+inset 0 0 20px rgba(255,255,255,0.2);
 
 text-align:center;
 
 color:white;
+
+transition:0.4s;
 }
 
-h1{
-font-size:22px;
-margin-bottom:20px;
+.container:hover{
+transform:translateY(-4px);
 }
+
+
+/* Heading */
+
+h1{
+font-size:23px;
+margin-bottom:18px;
+
+background:linear-gradient(90deg,#fff,#00f2ff,#ff00cc);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+
+/* AI Image */
+
+.aiImage{
+width:120px;
+margin-bottom:15px;
+
+filter:drop-shadow(0 0 15px #00e5ff);
+
+animation:floatAI 4s ease-in-out infinite;
+}
+
+@keyframes floatAI{
+0%{transform:translateY(0px)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0px)}
+}
+
 
 /* Input */
 
@@ -74,9 +119,9 @@ padding:14px;
 
 border-radius:14px;
 
-border:2px solid rgba(255,255,255,0.4);
+border:2px solid rgba(255,255,255,0.5);
 
-background:rgba(255,255,255,0.2);
+background:rgba(255,255,255,0.15);
 
 color:white;
 
@@ -90,10 +135,11 @@ color:#eee;
 }
 
 input:focus{
-border:2px solid #00e5ff;
-box-shadow:0 0 12px #00e5ff;
-background:rgba(255,255,255,0.3);
+border:2px solid #00f2ff;
+box-shadow:0 0 15px #00f2ff;
+background:rgba(255,255,255,0.25);
 }
+
 
 /* Button */
 
@@ -106,7 +152,7 @@ border:none;
 
 border-radius:12px;
 
-background:linear-gradient(135deg,#00e5ff,#00bcd4);
+background:linear-gradient(135deg,#ff00cc,#00f2ff);
 
 color:white;
 
@@ -118,9 +164,13 @@ transition:0.3s;
 }
 
 button:hover{
-transform:translateY(-2px);
-box-shadow:0 6px 20px rgba(0,0,0,0.3);
+transform:translateY(-3px) scale(1.02);
+
+box-shadow:
+0 8px 25px rgba(0,0,0,0.4),
+0 0 15px #00f2ff;
 }
+
 
 /* Profile Card */
 
@@ -131,12 +181,15 @@ padding:18px;
 
 border-radius:15px;
 
-background:rgba(255,255,255,0.2);
+background:rgba(255,255,255,0.18);
 
-border:1px solid rgba(255,255,255,0.4);
+border:1px solid rgba(255,255,255,0.5);
 
 display:none;
+
+backdrop-filter:blur(20px);
 }
+
 
 /* Avatar */
 
@@ -145,14 +198,18 @@ width:90px;
 height:90px;
 border-radius:50%;
 margin-bottom:10px;
+
+border:3px solid rgba(255,255,255,0.6);
 }
 
-/* Attendance text */
+
+/* Attendance */
 
 .attendance{
 margin-top:10px;
 font-size:14px;
 }
+
 
 /* Chart */
 
@@ -160,9 +217,6 @@ font-size:14px;
 margin-top:20px;
 }
 
-.circleBox{
-margin-top:20px;
-}
 
 /* Message */
 
@@ -171,15 +225,27 @@ margin-top:15px;
 font-weight:600;
 }
 
+
 /* Footer */
 
 footer{
 margin-top:20px;
 font-size:12px;
-opacity:0.8;
+opacity:0.85;
 }
 
 </style>
+
+
+
+
+
+
+
+
+
+
+  
 </head>
 
 <body>
@@ -188,7 +254,7 @@ opacity:0.8;
 
 <h1>AIML-B Attendance Portal</h1>
 
-<input id="roll" placeholder="Enter Roll Number">
+<input id="roll" placeholder="Enter mi ankelu ante Roll Number">
 
 <button onclick="checkAttendance()">Check Attendance</button>
 
@@ -289,7 +355,7 @@ const students={
 "25H71A61C8":{name:"Thalupula Gopinadh",jan:48.6,feb:77.0},
 "25H71A61C9":{name:"Thopula Bhargav Sai Amruth",jan:77.1,feb:66.2},
 "25H71A61D0":{name:"Vaka Lakshmi Jashnavi",jan:71.4,feb:65.3},
-  "25H71A61D1":{name:"v.karthik",jan:74.3,feb:77.5},
+"25H71A61D1":{name:"v.karthik",jan:74.3,feb:77.5},
 
 };
 
@@ -334,15 +400,15 @@ document.getElementById("avatar").src =
 const msg=document.getElementById("msg");
 
 if(total>=90){
-msg.innerText="Excellent Attendance ⭐";
+msg.innerText="Excellent Attendance mamula ledhu chappesav ⭐";
 msg.style.color="#00ffae";
 }
 else if(total>=75){
-msg.innerText="Good Attendance 👍";
+msg.innerText="Good Attendance super niku thirugu ledhu 👍";
 msg.style.color="#00ffae";
 }
 else{
-msg.innerText="Attendance below 75%. Attend classes regularly ⚠️";
+msg.innerText="Attendance below 75%. babaoooooooi jagarttha  Attend classes regularly ⚠️";
 msg.style.color="#ff4d4d";
 }
 /* Bar Chart */
@@ -413,6 +479,7 @@ checkAttendance();
 
 </body>
 </html>
+
 
 
 
