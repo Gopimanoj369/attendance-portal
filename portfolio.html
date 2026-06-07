@@ -6,14 +6,20 @@
     <title>Manoj - Artist & Editor Portfolio</title>
     <link rel="stylesheet" href="portfolio-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h1>MANOJ</h1>
-                <p>Artist & Editor</p>
+                <div class="brand-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>MANOJ</h1>
+                    <p>Artist & Editor</p>
+                </div>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
@@ -33,45 +39,114 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Creative Artist & Professional Editor</h1>
-            <p class="hero-subtitle">Transforming visions into stunning visual narratives</p>
-            <button class="cta-button" id="ctaBtn">Get In Touch</button>
-        </div>
-        <div class="hero-image">
-            <div class="placeholder-image">
-                <i class="fas fa-image"></i>
+            <span class="hero-badge">Welcome to My Portfolio</span>
+            <h1 class="hero-title">Creative <span class="gradient-text">Artist</span> & Professional <span class="gradient-text">Editor</span></h1>
+            <p class="hero-subtitle">Transforming visions into stunning visual narratives with passion and creativity</p>
+            <div class="hero-buttons">
+                <button class="cta-button btn-primary" id="ctaBtn">
+                    <span>Get In Touch</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="cta-button btn-secondary" id="scrollBtn">
+                    <span>Explore Work</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
             </div>
         </div>
+        <div class="hero-image">
+            <div class="floating-card">
+                <div class="placeholder-image">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="floating-badge">Creative Work</div>
+            </div>
+        </div>
+        <div class="hero-decoration"></div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Know more about my journey and expertise</p>
+            </div>
             <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm Manoj, a passionate artist and professional editor with years of experience in digital art, 
-                        photo editing, and visual storytelling. I specialize in creating compelling visuals that capture 
-                        emotions and tell meaningful stories.
-                    </p>
-                    <p>
-                        My expertise spans across digital painting, photo retouching, video editing, and graphic design. 
-                        I'm dedicated to delivering high-quality work that exceeds client expectations.
-                    </p>
-                    <div class="skills">
-                        <h3>Skills</h3>
-                        <ul class="skills-list">
-                            <li><span class="skill-name">Digital Art</span> <span class="skill-level">95%</span></li>
-                            <li><span class="skill-name">Photo Editing</span> <span class="skill-level">90%</span></li>
-                            <li><span class="skill-name">Video Editing</span> <span class="skill-level">88%</span></li>
-                            <li><span class="skill-name">Graphic Design</span> <span class="skill-level">92%</span></li>
-                        </ul>
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <div class="placeholder-image">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="image-badge">6+ Years Experience</div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="placeholder-image">
-                        <i class="fas fa-user-circle"></i>
+                <div class="about-text">
+                    <h3>Hello! I'm Manoj</h3>
+                    <p>
+                        I'm a passionate artist and professional editor with extensive experience in digital art, 
+                        photo editing, and visual storytelling. I transform creative visions into stunning visual 
+                        narratives that captivate and inspire audiences.
+                    </p>
+                    <p>
+                        With expertise spanning digital painting, photo retouching, video editing, and graphic design, 
+                        I'm committed to delivering high-quality work that exceeds expectations and brings your ideas to life.
+                    </p>
+                    
+                    <div class="skills">
+                        <h4>Professional Skills</h4>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Digital Art</span>
+                                    <span class="skill-percent">95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Photo Editing</span>
+                                    <span class="skill-percent">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Video Editing</span>
+                                    <span class="skill-percent">88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Graphic Design</span>
+                                    <span class="skill-percent">92%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h4>500+</h4>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>100+</h4>
+                            <p>Happy Clients</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>6+</h4>
+                            <p>Years Experience</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -81,37 +156,131 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2 class="section-title">Portfolio</h2>
+            <div class="section-header">
+                <h2 class="section-title">My Portfolio</h2>
+                <p class="section-subtitle">Showcase of my best creative works</p>
+            </div>
+            
             <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn active" data-filter="all">All Works</button>
                 <button class="filter-btn" data-filter="digital-art">Digital Art</button>
                 <button class="filter-btn" data-filter="photo-editing">Photo Editing</button>
                 <button class="filter-btn" data-filter="video">Video Editing</button>
             </div>
+
             <div class="portfolio-grid">
                 <div class="portfolio-item" data-category="digital-art">
-                    <div class="portfolio-image"><div class="placeholder-portfolio"><i class="fas fa-palette"></i></div></div>
-                    <div class="portfolio-info"><h3>Abstract Landscape</h3><p>Digital Art</p></div>
+                    <div class="portfolio-image">
+                        <div class="placeholder-portfolio">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <button class="view-btn"><i class="fas fa-search-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Abstract Landscape</h3>
+                        <p>Digital Art</p>
+                        <div class="portfolio-tags">
+                            <span>Digital</span>
+                            <span>Art</span>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="portfolio-item" data-category="photo-editing">
-                    <div class="portfolio-image"><div class="placeholder-portfolio"><i class="fas fa-image"></i></div></div>
-                    <div class="portfolio-info"><h3>Portrait Retouching</h3><p>Photo Editing</p></div>
+                    <div class="portfolio-image">
+                        <div class="placeholder-portfolio">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <button class="view-btn"><i class="fas fa-search-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Portrait Retouching</h3>
+                        <p>Photo Editing</p>
+                        <div class="portfolio-tags">
+                            <span>Portrait</span>
+                            <span>Retouching</span>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="portfolio-item" data-category="video">
-                    <div class="portfolio-image"><div class="placeholder-portfolio"><i class="fas fa-video"></i></div></div>
-                    <div class="portfolio-info"><h3>Music Video Edit</h3><p>Video Editing</p></div>
+                    <div class="portfolio-image">
+                        <div class="placeholder-portfolio">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <button class="view-btn"><i class="fas fa-search-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Music Video Edit</h3>
+                        <p>Video Editing</p>
+                        <div class="portfolio-tags">
+                            <span>Video</span>
+                            <span>Music</span>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="portfolio-item" data-category="digital-art">
-                    <div class="portfolio-image"><div class="placeholder-portfolio"><i class="fas fa-paintbrush"></i></div></div>
-                    <div class="portfolio-info"><h3>Character Design</h3><p>Digital Art</p></div>
+                    <div class="portfolio-image">
+                        <div class="placeholder-portfolio">
+                            <i class="fas fa-paintbrush"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <button class="view-btn"><i class="fas fa-search-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Character Design</h3>
+                        <p>Digital Art</p>
+                        <div class="portfolio-tags">
+                            <span>Character</span>
+                            <span>Design</span>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="portfolio-item" data-category="photo-editing">
-                    <div class="portfolio-image"><div class="placeholder-portfolio"><i class="fas fa-camera"></i></div></div>
-                    <div class="portfolio-info"><h3>Product Photography</h3><p>Photo Editing</p></div>
+                    <div class="portfolio-image">
+                        <div class="placeholder-portfolio">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <button class="view-btn"><i class="fas fa-search-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Product Photography</h3>
+                        <p>Photo Editing</p>
+                        <div class="portfolio-tags">
+                            <span>Product</span>
+                            <span>Photography</span>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="portfolio-item" data-category="video">
-                    <div class="portfolio-image"><div class="placeholder-portfolio"><i class="fas fa-film"></i></div></div>
-                    <div class="portfolio-info"><h3>Commercial Spot</h3><p>Video Editing</p></div>
+                    <div class="portfolio-image">
+                        <div class="placeholder-portfolio">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <button class="view-btn"><i class="fas fa-search-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Commercial Spot</h3>
+                        <p>Video Editing</p>
+                        <div class="portfolio-tags">
+                            <span>Commercial</span>
+                            <span>Video</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -120,37 +289,76 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Services</h2>
+            <div class="section-header">
+                <h2 class="section-title">My Services</h2>
+                <p class="section-subtitle">What I can do for your creative projects</p>
+            </div>
+
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-palette"></i></div>
+                    <div class="service-icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                    </div>
                     <h3>Digital Art</h3>
-                    <p>Custom digital illustrations, paintings, and concept art tailored to your vision.</p>
+                    <p>Custom digital illustrations, paintings, and concept art tailored to bring your vision to life.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
+
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-image"></i></div>
+                    <div class="service-icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                    </div>
                     <h3>Photo Editing</h3>
-                    <p>Professional photo retouching, color correction, and enhancement services.</p>
+                    <p>Professional photo retouching, color correction, and enhancement for stunning results.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
+
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-video"></i></div>
+                    <div class="service-icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                    </div>
                     <h3>Video Editing</h3>
-                    <p>Full video editing services including color grading, effects, and transitions.</p>
+                    <p>Full video editing services including color grading, effects, and professional transitions.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
+
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-pen-fancy"></i></div>
+                    <div class="service-icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                    </div>
                     <h3>Graphic Design</h3>
-                    <p>Logo design, branding materials, and marketing graphics for your business.</p>
+                    <p>Logo design, branding materials, and marketing graphics that make your business stand out.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
+
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-film"></i></div>
+                    <div class="service-icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                    </div>
                     <h3>Animation</h3>
-                    <p>2D and 3D animation for commercials, explainers, and promotional videos.</p>
+                    <p>2D and 3D animation for commercials, explainers, and engaging promotional videos.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
+
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-magic"></i></div>
+                    <div class="service-icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                    </div>
                     <h3>Visual Effects</h3>
-                    <p>Professional VFX and motion graphics for your creative projects.</p>
+                    <p>Professional VFX and motion graphics that add wow-factor to your creative projects.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -159,34 +367,46 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Ready to collaborate? Let's create something amazing together</p>
+            </div>
+
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Let's Work Together</h3>
-                    <p>Feel free to reach out for collaborations or inquiries about my work.</p>
+                    <h3>Let's Connect</h3>
+                    <p>I'm always excited to take on new creative challenges and bring your ideas to life.</p>
+                    
                     <div class="contact-details">
                         <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
                             <div>
                                 <h4>Email</h4>
-                                <p><a href="mailto:manoj@example.com">manoj@example.com</a></p>
+                                <a href="mailto:manoj@example.com">manoj@example.com</a>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <i class="fas fa-phone"></i>
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
                             <div>
                                 <h4>Phone</h4>
-                                <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                                <a href="tel:+1234567890">+1 (234) 567-890</a>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
                             <div>
                                 <h4>Location</h4>
                                 <p>Your City, Country</p>
                             </div>
                         </div>
                     </div>
+
                     <div class="social-links">
                         <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-icon" title="Behance"><i class="fab fa-behance"></i></a>
@@ -194,12 +414,28 @@
                         <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
+
                 <form class="contact-form" id="contactForm">
-                    <input type="text" id="name" placeholder="Your Name" required>
-                    <input type="email" id="email" placeholder="Your Email" required>
-                    <input type="text" id="subject" placeholder="Subject" required>
-                    <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                        <span class="form-icon"><i class="fas fa-user"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                        <span class="form-icon"><i class="fas fa-envelope"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder="Subject" required>
+                        <span class="form-icon"><i class="fas fa-pencil-alt"></i></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                        <span class="form-icon"><i class="fas fa-message"></i></span>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
                 </form>
             </div>
         </div>
@@ -208,13 +444,33 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Manoj. All rights reserved. | Artist & Editor Portfolio</p>
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Manoj</h4>
+                    <p>Artist & Editor</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#portfolio">Portfolio</a>
+                        <a href="#services">Services</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h5>Follow Me</h5>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Manoj. All rights reserved. | Artist & Editor Portfolio</p>
             </div>
         </div>
     </footer>
