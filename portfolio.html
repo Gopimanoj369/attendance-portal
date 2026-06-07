@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manoj - Artist & Editor Portfolio</title>
+    <link rel="stylesheet" href="portfolio-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>MANOJ</h1>
+                <p>Artist & Editor</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Creative Artist & Professional Editor</h1>
+            <p class="hero-subtitle">Transforming visions into stunning visual narratives</p>
+            <button class="cta-button" id="ctaBtn">Get In Touch</button>
+        </div>
+        <div class="hero-image">
+            <div class="placeholder-image">
+                <i class="fas fa-image"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm Manoj, a passionate artist and professional editor with years of experience in digital art, 
+                        photo editing, and visual storytelling. I specialize in creating compelling visuals that capture 
+                        emotions and tell meaningful stories.
+                    </p>
+                    <p>
+                        My expertise spans across digital painting, photo retouching, video editing, and graphic design. 
+                        I'm dedicated to delivering high-quality work that exceeds client expectations.
+                    </p>
+                    <div class="skills">
+                        <h3>Skills</h3>
+                        <ul class="skills-list">
+                            <li><span class="skill-name">Digital Art</span> <span class="skill-level">95%</span></li>
+                            <li><span class="skill-name">Photo Editing</span> <span class="skill-level">90%</span></li>
+                            <li><span class="skill-name">Video Editing</span> <span class="skill-level">88%</span></li>
+                            <li><span class="skill-name">Graphic Design</span> <span class="skill-level">92%</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="placeholder-image">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="digital-art">Digital Art</button>
+                <button class="filter-btn" data-filter="photo-editing">Photo Editing</button>
+                <button class="filter-btn" data-filter="video">Video Editing</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="digital-art">
+                    <div class="portfolio-image"><div class="placeholder-portfolio"><i class="fas fa-palette"></i></div></div>
+                    <div class="portfolio-info"><h3>Abstract Landscape</h3><p>Digital Art</p></div>
+                </div>
+                <div class="portfolio-item" data-category="photo-editing">
+                    <div class="portfolio-image"><div class="placeholder-portfolio"><i class="fas fa-image"></i></div></div>
+                    <div class="portfolio-info"><h3>Portrait Retouching</h3><p>Photo Editing</p></div>
+                </div>
+                <div class="portfolio-item" data-category="video">
+                    <div class="portfolio-image"><div class="placeholder-portfolio"><i class="fas fa-video"></i></div></div>
+                    <div class="portfolio-info"><h3>Music Video Edit</h3><p>Video Editing</p></div>
+                </div>
+                <div class="portfolio-item" data-category="digital-art">
+                    <div class="portfolio-image"><div class="placeholder-portfolio"><i class="fas fa-paintbrush"></i></div></div>
+                    <div class="portfolio-info"><h3>Character Design</h3><p>Digital Art</p></div>
+                </div>
+                <div class="portfolio-item" data-category="photo-editing">
+                    <div class="portfolio-image"><div class="placeholder-portfolio"><i class="fas fa-camera"></i></div></div>
+                    <div class="portfolio-info"><h3>Product Photography</h3><p>Photo Editing</p></div>
+                </div>
+                <div class="portfolio-item" data-category="video">
+                    <div class="portfolio-image"><div class="placeholder-portfolio"><i class="fas fa-film"></i></div></div>
+                    <div class="portfolio-info"><h3>Commercial Spot</h3><p>Video Editing</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Digital Art</h3>
+                    <p>Custom digital illustrations, paintings, and concept art tailored to your vision.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-image"></i></div>
+                    <h3>Photo Editing</h3>
+                    <p>Professional photo retouching, color correction, and enhancement services.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-video"></i></div>
+                    <h3>Video Editing</h3>
+                    <p>Full video editing services including color grading, effects, and transitions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-pen-fancy"></i></div>
+                    <h3>Graphic Design</h3>
+                    <p>Logo design, branding materials, and marketing graphics for your business.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-film"></i></div>
+                    <h3>Animation</h3>
+                    <p>2D and 3D animation for commercials, explainers, and promotional videos.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-magic"></i></div>
+                    <h3>Visual Effects</h3>
+                    <p>Professional VFX and motion graphics for your creative projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Work Together</h3>
+                    <p>Feel free to reach out for collaborations or inquiries about my work.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:manoj@example.com">manoj@example.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Your City, Country</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" title="Behance"><i class="fab fa-behance"></i></a>
+                        <a href="#" class="social-icon" title="Dribbble"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <input type="text" id="subject" placeholder="Subject" required>
+                    <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Manoj. All rights reserved. | Artist & Editor Portfolio</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="portfolio-script.js"></script>
+</body>
+</html>
