@@ -1,480 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manoj - Artist & Editor Portfolio</title>
-    <link rel="stylesheet" href="portfolio-styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIML-B Attendance Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+/* Animated Background */
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background: linear-gradient(270deg,#667eea,#764ba2,#6dd5ed);
+background-size:600% 600%;
+animation:bgmove 10s infinite;
+}
+@keyframes bgmove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+/* Glass Container */
+.container{
+width:90%;
+max-width:420px;
+padding:30px;
+border-radius:25px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(25px);
+border:1px solid rgba(255,255,255,0.4);
+box-shadow:0 10px 40px rgba(0,0,0,0.25);
+text-align:center;
+color:white;
+}
+h1{
+font-size:22px;
+margin-bottom:20px;
+}
+/* Input */
+input{
+width:100%;
+padding:14px;
+border-radius:14px;
+border:2px solid rgba(255,255,255,0.4);
+background:rgba(255,255,255,0.2);
+color:white;
+outline:none;
+transition:0.3s;
+}
+input::placeholder{
+color:#eee;
+}
+input:focus{
+border:2px solid #00e5ff;
+box-shadow:0 0 12px #00e5ff;
+background:rgba(255,255,255,0.3);
+}
+/* Button */
+button{
+width:100%;
+padding:12px;
+margin-top:12px;
+border:none;
+border-radius:12px;
+background:linear-gradient(135deg,#00e5ff,#00bcd4);
+color:white;
+font-size:15px;
+cursor:pointer;
+transition:0.3s;
+}
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 6px 20px rgba(0,0,0,0.3);
+}
+/* Profile Card */
+.profile{
+margin-top:20px;
+padding:18px;
+border-radius:15px;
+background:rgba(255,255,255,0.2);
+border:1px solid rgba(255,255,255,0.4);
+display:none;
+}
+/* Avatar */
+.avatar{
+width:90px;
+height:90px;
+border-radius:50%;
+margin-bottom:10px;
+}
+/* Attendance text */
+.attendance{
+margin-top:10px;
+font-size:14px;
+}
+/* Chart */
+.chartBox{
+margin-top:20px;
+}
+.circleBox{
+margin-top:20px;
+}
+/* Message */
+.message{
+margin-top:15px;
+font-weight:600;
+}
+/* Footer */
+footer{
+margin-top:20px;
+font-size:12px;
+opacity:0.8;
+}
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <div class="brand-icon">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <div class="brand-text">
-                    <h1>MANOJ</h1>
-                    <p>Artist & Editor</p>
-                </div>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <span class="hero-badge">Welcome to My Portfolio</span>
-            <h1 class="hero-title">Creative <span class="gradient-text">Artist</span> & Professional <span class="gradient-text">Editor</span></h1>
-            <p class="hero-subtitle">Transforming visions into stunning visual narratives with passion and creativity</p>
-            <div class="hero-buttons">
-                <button class="cta-button btn-primary" id="ctaBtn">
-                    <span>Get In Touch</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-                <button class="cta-button btn-secondary" id="scrollBtn">
-                    <span>Explore Work</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </div>
-        </div>
-        <div class="hero-image">
-            <div class="floating-card">
-                <div class="placeholder-image">
-                    <i class="fas fa-image"></i>
-                </div>
-                <div class="floating-badge">Creative Work</div>
-            </div>
-        </div>
-        <div class="hero-decoration"></div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Know more about my journey and expertise</p>
-            </div>
-            <div class="about-content">
-                <div class="about-image">
-                    <div class="image-wrapper">
-                        <div class="placeholder-image">
-                            <i class="fas fa-user-circle"></i>
-                        </div>
-                        <div class="image-badge">6+ Years Experience</div>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <h3>Hello! I'm Manoj</h3>
-                    <p>
-                        I'm a passionate artist and professional editor with extensive experience in digital art, 
-                        photo editing, and visual storytelling. I transform creative visions into stunning visual 
-                        narratives that captivate and inspire audiences.
-                    </p>
-                    <p>
-                        With expertise spanning digital painting, photo retouching, video editing, and graphic design, 
-                        I'm committed to delivering high-quality work that exceeds expectations and brings your ideas to life.
-                    </p>
-                    
-                    <div class="skills">
-                        <h4>Professional Skills</h4>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Digital Art</span>
-                                    <span class="skill-percent">95%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 95%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Photo Editing</span>
-                                    <span class="skill-percent">90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Video Editing</span>
-                                    <span class="skill-percent">88%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 88%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Graphic Design</span>
-                                    <span class="skill-percent">92%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 92%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="stats">
-                        <div class="stat-item">
-                            <h4>500+</h4>
-                            <p>Projects Completed</p>
-                        </div>
-                        <div class="stat-item">
-                            <h4>100+</h4>
-                            <p>Happy Clients</p>
-                        </div>
-                        <div class="stat-item">
-                            <h4>6+</h4>
-                            <p>Years Experience</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">My Portfolio</h2>
-                <p class="section-subtitle">Showcase of my best creative works</p>
-            </div>
-            
-            <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">All Works</button>
-                <button class="filter-btn" data-filter="digital-art">Digital Art</button>
-                <button class="filter-btn" data-filter="photo-editing">Photo Editing</button>
-                <button class="filter-btn" data-filter="video">Video Editing</button>
-            </div>
-
-            <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="digital-art">
-                    <div class="portfolio-image">
-                        <div class="placeholder-portfolio">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <button class="view-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Abstract Landscape</h3>
-                        <p>Digital Art</p>
-                        <div class="portfolio-tags">
-                            <span>Digital</span>
-                            <span>Art</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="photo-editing">
-                    <div class="portfolio-image">
-                        <div class="placeholder-portfolio">
-                            <i class="fas fa-image"></i>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <button class="view-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Portrait Retouching</h3>
-                        <p>Photo Editing</p>
-                        <div class="portfolio-tags">
-                            <span>Portrait</span>
-                            <span>Retouching</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="video">
-                    <div class="portfolio-image">
-                        <div class="placeholder-portfolio">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <button class="view-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Music Video Edit</h3>
-                        <p>Video Editing</p>
-                        <div class="portfolio-tags">
-                            <span>Video</span>
-                            <span>Music</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="digital-art">
-                    <div class="portfolio-image">
-                        <div class="placeholder-portfolio">
-                            <i class="fas fa-paintbrush"></i>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <button class="view-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Character Design</h3>
-                        <p>Digital Art</p>
-                        <div class="portfolio-tags">
-                            <span>Character</span>
-                            <span>Design</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="photo-editing">
-                    <div class="portfolio-image">
-                        <div class="placeholder-portfolio">
-                            <i class="fas fa-camera"></i>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <button class="view-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Product Photography</h3>
-                        <p>Photo Editing</p>
-                        <div class="portfolio-tags">
-                            <span>Product</span>
-                            <span>Photography</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="video">
-                    <div class="portfolio-image">
-                        <div class="placeholder-portfolio">
-                            <i class="fas fa-film"></i>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <button class="view-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Commercial Spot</h3>
-                        <p>Video Editing</p>
-                        <div class="portfolio-tags">
-                            <span>Commercial</span>
-                            <span>Video</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">My Services</h2>
-                <p class="section-subtitle">What I can do for your creative projects</p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon-wrapper">
-                        <div class="service-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                    </div>
-                    <h3>Digital Art</h3>
-                    <p>Custom digital illustrations, paintings, and concept art tailored to bring your vision to life.</p>
-                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon-wrapper">
-                        <div class="service-icon">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <h3>Photo Editing</h3>
-                    <p>Professional photo retouching, color correction, and enhancement for stunning results.</p>
-                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon-wrapper">
-                        <div class="service-icon">
-                            <i class="fas fa-video"></i>
-                        </div>
-                    </div>
-                    <h3>Video Editing</h3>
-                    <p>Full video editing services including color grading, effects, and professional transitions.</p>
-                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon-wrapper">
-                        <div class="service-icon">
-                            <i class="fas fa-pen-fancy"></i>
-                        </div>
-                    </div>
-                    <h3>Graphic Design</h3>
-                    <p>Logo design, branding materials, and marketing graphics that make your business stand out.</p>
-                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon-wrapper">
-                        <div class="service-icon">
-                            <i class="fas fa-film"></i>
-                        </div>
-                    </div>
-                    <h3>Animation</h3>
-                    <p>2D and 3D animation for commercials, explainers, and engaging promotional videos.</p>
-                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon-wrapper">
-                        <div class="service-icon">
-                            <i class="fas fa-magic"></i>
-                        </div>
-                    </div>
-                    <h3>Visual Effects</h3>
-                    <p>Professional VFX and motion graphics that add wow-factor to your creative projects.</p>
-                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Ready to collaborate? Let's create something amazing together</p>
-            </div>
-
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <p>I'm always excited to take on new creative challenges and bring your ideas to life.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:manoj@example.com">manoj@example.com</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div>
-                                <h4>Phone</h4>
-                                <a href="tel:+1234567890">+1 (234) 567-890</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Your City, Country</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="social-links">
-                        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon" title="Behance"><i class="fab fa-behance"></i></a>
-                        <a href="#" class="social-icon" title="Dribbble"><i class="fab fa-dribbble"></i></a>
-                        <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder="Your Name" required>
-                        <span class="form-icon"><i class="fas fa-user"></i></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder="Your Email" required>
-                        <span class="form-icon"><i class="fas fa-envelope"></i></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" placeholder="Subject" required>
-                        <span class="form-icon"><i class="fas fa-pencil-alt"></i></span>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
-                        <span class="form-icon"><i class="fas fa-message"></i></span>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <span>Send Message</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Manoj</h4>
-                    <p>Artist & Editor</p>
-                </div>
-                <div class="footer-section">
-                    <h5>Quick Links</h5>
-                    <div class="footer-links">
-                        <a href="#home">Home</a>
-                        <a href="#about">About</a>
-                        <a href="#portfolio">Portfolio</a>
-                        <a href="#services">Services</a>
-                        <a href="#contact">Contact</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h5>Follow Me</h5>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-behance"></i></a>
-                        <a href="#"><i class="fab fa-dribbble"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Manoj. All rights reserved. | Artist & Editor Portfolio</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="portfolio-script.js"></script>
+<div class="container">
+<h1>AIML-B Attendance Portal</h1>
+<input id="roll" placeholder="Enter Roll Number">
+<button onclick="checkAttendance()">Check Attendance</button>
+<div class="profile" id="profile">
+<img id="avatar" class="avatar">
+<h3 id="name"></h3>
+<p id="rollno"></p>
+<div class="attendance">
+<p id="jan"></p>
+<p id="feb"></p>
+<p id="total"></p>
+</div>
+<div class="chartBox">
+<canvas id="chart"></canvas>
+</div>
+<div class="circleBox">
+<canvas id="circleChart"></canvas>
+</div>
+<div class="message" id="msg"></div>
+</div>
+<footer>Created by Gopi Manoj</footer>
+</div>
+<script>
+const students={
+"25H71A6167":{name:"Akula Lakshmi Narasimha",jan:42.9,feb:68.1},
+"25H71A6168":{name:"Allamudi Murali Krishna",jan:94.3,feb:81.2},
+"25H71A6169":{name:"Ancha Omkar Chowdary",jan:57.1,feb:74.2},
+"25H71A6170":{name:"Bollam Bindusri",jan:85.7,feb:80.3},
+"25H71A6171":{name:"Bollam Reshma",jan:71.4,feb:82.6},
+"25H71A6172":{name:"Bollepogu Karthik",jan:40.0,feb:38.5},
+"25H71A6173":{name:"Boosi Mahima Jyothi",jan:82.9,feb:85.0},
+"25H71A6174":{name:"Challa Akhil",jan:68.6,feb:70.4},
+"25H71A6175":{name:"Chattu Saranya Lohitha",jan:100.0,feb:83.6},
+"25H71A6176":{name:"Chavala Poornesh",jan:74.3,feb:77.9},
+"25H71A6177":{name:"Chinni Suresh",jan:57.1,feb:65.7},
+"25H71A6178":{name:"Chunduri Shashank Naga Vignesh",jan:22.9,feb:30.5},
+"25H71A6179":{name:"Gangavarapu Deepika",jan:77.1,feb:65.7},
+"25H71A6180":{name:"Gavini Naveen",jan:71.4,feb:69.0},
+"25H71A6181":{name:"Gurram Rakesh Varma",jan:77.1,feb:70.9},
+"25H71A6182":{name:"Jada Srividhya",jan:71.4,feb:75.1},
+"25H71A6183":{name:"Janga Jasmitha Rani",jan:85.7,feb:76.1},
+"25H71A6184":{name:"Jonnakuti Keerthana Sri",jan:77.1,feb:77.9},
+"25H71A6185":{name:"Karnati Divya Rajya Lakshmi",jan:82.9,feb:73.7},
+"25H71A6186":{name:"Katta Srinanda Chaitanya Kumar",jan:94.3,feb:93.4},
+"25H71A6187":{name:"Kaviti Pujitha",jan:77.1,feb:71.4},
+"25H71A6188":{name:"Kommukuri Vijayalakshmi",jan:91.4,feb:85.4},
+"25H71A6189":{name:"Kotakonda Jaswanth",jan:8.6,feb:23.9},
+"25H71A6190":{name:"Kotaru Amrutha",jan:85.7,feb:88.7},
+"25H71A6191":{name:"Kotaru Amulya",jan:88.6,feb:89.7},
+"25H71A6192":{name:"Kukkala Pranay",jan:34.3,feb:53.1},
+"25H71A6193":{name:"Kunchala Yesuraja",jan:60.0,feb:72.8},
+"25H71A6194":{name:"Kuraku Mohan Krishna",jan:57.1,feb:71.4},
+"25H71A6195":{name:"Lam Suvarna Sandeep",jan:94.3,feb:78.9},
+"25H71A6196":{name:"M Madhulatha",jan:88.6,feb:72.3},
+"25H71A6197":{name:"Madhavarapu Siva Naga Ram Charan Hemanth",jan:57.1,feb:55.9},
+"25H71A6198":{name:"Madugula Suseel Kumar",jan:20.0,feb:58.2},
+"25H71A6199":{name:"Manchala Hemanth",jan:11.4,feb:63.8},
+"25H71A61A0":{name:"Mandali Dheemanth Nag",jan:40.0,feb:73.2},
+"25H71A61A1":{name:"Mandavi Mishra",jan:74.3,feb:68.1},
+"25H71A61A2":{name:"Mecharla Pravallika",jan:57.1,feb:79.3},
+"25H71A61A3":{name:"Meda Jaswanth",jan:88.6,feb:70.0},
+"25H71A61A4":{name:"Molleti Jaya Siva Rama Ganesh",jan:57.1,feb:65.3},
+"25H71A61A5":{name:"Muchinapalli M N V S Srinivas",jan:85.7,feb:77.9},
+"25H71A61A6":{name:"Nagapuri Gopi Manoj",jan:94.3,feb:79.8},
+"25H71A61A7":{name:"Nalajala Balaji",jan:82.9,feb:82.6},
+"25H71A61A8":{name:"Nali Narasimha Raju",jan:60.0,feb:70.0},
+"25H71A61A9":{name:"Nandyala Sarabaiah",jan:74.3,feb:73.2},
+"25H71A61B0":{name:"Neelam Srinivasa",jan:40.0,feb:71.8},
+"25H71A61B1":{name:"Palaparthi Samith Kumar",jan:25.7,feb:39.4},
+"25H71A61B2":{name:"Parasa Thanush",jan:37.1,feb:58.2},
+"25H71A61B3":{name:"Parella Naga Sudha",jan:62.9,feb:82.6},
+"25H71A61B4":{name:"Pothamsetty Kavya Sri",jan:82.9,feb:83.6},
+"25H71A61B5":{name:"Potnuri Sanjay",jan:97.1,feb:80.8},
+"25H71A61B6":{name:"Prem Teja Lakkabattula",jan:91.4,feb:73.2},
+"25H71A61B7":{name:"Rachabanti Gayathri",jan:77.1,feb:80.8},
+"25H71A61B8":{name:"Ramireddy Anusha",jan:91.4,feb:88.3},
+"25H71A61B9":{name:"Samudayapalepu Durga Devi",jan:82.9,feb:67.1},
+"25H71A61C0":{name:"Sayyad Hasma",jan:88.6,feb:87.8},
+"25H71A61C1":{name:"Shaik Akash",jan:91.4,feb:76.1},
+"25H71A61C2":{name:"Shaik Maleeha Aiman",jan:91.4,feb:56.3},
+"25H71A61C3":{name:"Shaik Sahera",jan:88.6,feb:88.7},
+"25H71A61C4":{name:"Shanmuk Rahul Joga",jan:77.1,feb:74.6},
+"25H71A61C5":{name:"Sunkara Siddha Hanu Ratna Manikanth",jan:57.1,feb:58.7},
+"25H71A61C6":{name:"Surapaneni Aswini",jan:71.4,feb:76.1},
+"25H71A61C7":{name:"Tammaneni Pedda Venkata Nithin Reddy",jan:71.4,feb:65.7},
+"25H71A61C8":{name:"Thalupula Gopinadh",jan:48.6,feb:77.0},
+"25H71A61C9":{name:"Thopula Bhargav Sai Amruth",jan:77.1,feb:66.2},
+"25H71A61D0":{name:"Vaka Lakshmi Jashnavi",jan:71.4,feb:65.3}
+};
+let chart;
+let circleChart;
+function checkAttendance(){
+const roll=document.getElementById("roll").value.trim();
+if(!students[roll]){
+alert("Student Data Not Found");
+return;
+}
+const s=students[roll];
+const total=((s.jan+s.feb)/2).toFixed(1);
+document.getElementById("profile").style.display="block";
+document.getElementById("name").innerText=s.name;
+document.getElementById("rollno").innerText="Roll: "+roll;
+const janEl=document.getElementById("jan");
+const febEl=document.getElementById("feb");
+const totalEl=document.getElementById("total");
+janEl.innerText="January: "+s.jan+"%";
+febEl.innerText="February: "+s.feb+"%";
+totalEl.innerText="Total: "+total+"%";
+janEl.style.color = s.jan < 75 ? "#ff4d4d" : "#00ffae";
+febEl.style.color = s.feb < 75 ? "#ff4d4d" : "#00ffae";
+totalEl.style.color = total < 75 ? "#ff4d4d" : "#00ffae";
+document.getElementById("avatar").src =
+"https://ui-avatars.com/api/?name="+s.name+"&background=random";
+/* Message */
+const msg=document.getElementById("msg");
+if(total>=90){
+msg.innerText="Excellent Attendance ⭐";
+msg.style.color="#00ffae";
+}
+else if(total>=75){
+msg.innerText="Good Attendance 👍";
+msg.style.color="#00ffae";
+}
+else{
+msg.innerText="Attendance below 75%. Attend classes regularly ⚠️";
+msg.style.color="#ff4d4d";
+}
+/* Bar Chart */
+if(chart) chart.destroy();
+chart=new Chart(document.getElementById("chart"),{
+type:'bar',
+data:{
+labels:['January','February','Total'],
+datasets:[{
+data:[s.jan,s.feb,total],
+backgroundColor:[
+s.jan>=75 ? '#00ffae' : '#ff4d4d',
+s.feb>=75 ? '#00ffae' : '#ff4d4d',
+total>=75 ? '#00ffae' : '#ff4d4d'
+]
+}]
+},
+options:{
+animation:{duration:1500},
+plugins:{legend:{display:false}},
+scales:{y:{beginAtZero:true,max:100}}
+}
+});
+/* Circle Chart */
+if(circleChart) circleChart.destroy();
+circleChart=new Chart(document.getElementById("circleChart"),{
+type:'doughnut',
+data:{
+labels:['Attendance','Remaining'],
+datasets:[{
+data:[total,100-total],
+backgroundColor:['#00ffae','#ffffff33']
+}]
+},
+options:{
+cutout:'70%',
+plugins:{legend:{display:false}}
+}
+});
+}
+/* Enter key search */
+document.getElementById("roll")
+.addEventListener("keypress",function(e){
+if(e.key==="Enter"){
+checkAttendance();
+}
+});
+</script>
 </body>
 </html>
